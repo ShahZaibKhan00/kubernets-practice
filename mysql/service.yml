@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql-service
+  namespace: mysql
+spec: 
+      # it means it's a headless service never gonna be exposed
+      # Pods can connect them but using a service as for outer service it can't be accessed
+      # It can only be used for internal purpose but
+  clusterIP: None 
+  selector:
+    app: mysql
+    # app.kubernetes.io/name: MyApp
+  ports:
+  - name: mysql
+    protocol: TCP
+    port: 3306
+    targetPort: 3306
+  
+

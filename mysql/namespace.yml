@@ -1,0 +1,8 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: mysql 
+
+  # the command used to create namespace from file is
+  # it create and update it to latest version
+  # kubectl apply -f FILENAME

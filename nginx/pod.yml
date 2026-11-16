@@ -1,0 +1,37 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx-pod
+  namespace: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: "prod"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
+
+
+  # the command used to create namespace from file is
+  # it create and update it to latest version
+  # kubectl apply -f FILENAME
+
+
+  # This is the command used to get in the root shell of pod
+  # kubectl exec -it pod/nginx-pod -n nginx -- bash
+
+
+  # This is the command used to describe the pod 
+  # kubectl describe pod/nginx-pod -n nginx 
+
+
+  # the command used to delete the pod will be
+  # kubectl delete -f FILENAME
+
+
+  # he to create the ingress nginx
+  # kubectl apply -f  https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml 
